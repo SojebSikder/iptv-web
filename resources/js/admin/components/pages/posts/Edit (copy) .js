@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Add() {
+export default function Edit(props) {
     // style hook
     const exClasses = usePageStyles();
     const classes = useStyles();
@@ -60,17 +60,18 @@ export default function Add() {
         data.append('is_image_ext', checkbox.imageExt.toString());
         data.append('is_link_ext', checkbox.linkExt.toString());
 
-        if (image.name != null) {
+        if (image != null) {
             data.append('image', image, image.name);
         }
 
         data.append('status', checkbox.status == true ? 1 : 0);
         data.append('category_id', productCategory);
+        data.append('_method', 'PATCH');
 
-        PostApi.addPosts(data, (res) => {
+        PostApi.updatePost(props.match.params.id, data, (res) => {
             //console.log(res);
-            setMsg("Tv Added successfully!");
-            reset();
+            updateUi();
+            setMsg("Tv updated successfully!");
         }, (err) => {
             //console.log(err);
             setMsg("Something wrong :(");
@@ -81,18 +82,49 @@ export default function Add() {
 
     }
 
-    const reset = () => {
-        setTextInput({ ["name"]: "" });
-        setTextInput({ ["link"]: "" });
-        setImage("");
-    }
+    const updateUi = () => {
 
-    useEffect(() => {
+        PostApi.getPostById(props.match.params.id, (res) => {
+            // console.log(res.data.data[0].title);
+            // Set text value
+            setTextInput({
+                ...textInput,
+                ["title"]: res.data.data[0].title == null ? "" : res.data.data[0].title,
+                ["link"]: res.data.data[0].link == null ? "" : res.data.data[0].link,
+            });
+
+            // set checkbox value
+            setCheckbox({
+                ...checkbox,
+                ["imageExt"]: res.data.data[0].is_image_ext,
+                ["linkExt"]: res.data.data[0].is_link_ext,
+                ["status"]: res.data.data[0].status,
+            });
+
+            // set product category
+            setProductCategory(res.data.data[0].category_id);
+            // set image
+            setImage(res.data.data[0].image);
+        }, (err) => {
+
+        });
+
+
         CategoryApi.getCategories((res) => {
             setCategories(res.data.data);
         }, (err) => {
 
         });
+    }
+
+    const reset = () => {
+        setTextInput({ ["title"]: "" });
+        setTextInput({ ["link"]: "" });
+        setImage("");
+    }
+
+    useEffect(() => {
+        updateUi();
     }, [])
 
 
@@ -107,20 +139,20 @@ export default function Add() {
     const [productCategory, setProductCategory] = useState('');
 
     const [textInput, setTextInput] = useState({
-        name: '',
+        title: '',
         link: '',
     });
 
     const [checkbox, setCheckbox] = useState({
-        imageExt: false,
-        linkExt: false,
+        imageExt: 'false',
+        linkExt: 'false',
         status: true,
     });
     // end element hook
     // element hook method
     // for text input
     const handleTextInput = (event) => {
-        setTextInput({ ...textInput, [event.target.name]: event.target.value });
+        setTextInput({ ...textInput, [event.target.title]: event.target.value });
     };
     // for dropdown category
     const handleProductCategory = (event) => {
@@ -128,14 +160,14 @@ export default function Add() {
     };
     // for checkbox
     const handleCheckbox = (event) => {
-        setCheckbox({ ...checkbox, [event.target.name]: event.target.checked });
+        setCheckbox({ ...checkbox, [event.target.title]: event.target.checked });
     };
     // end element hook method
     return (
         <div className={exClasses.content}>
             <div className={exClasses.toolbar} />
 
-            <h1>Add New Channel</h1>
+            <h1>Edit Channel</h1>
 
             <h1>{msg}</h1>
 
@@ -153,8 +185,8 @@ export default function Add() {
                         label="Channel Name"
                         variant="outlined"
                         required
-                        name="name"
-                        value={textInput.name}
+                        name="title"
+                        value={textInput.title}
                         onChange={handleTextInput}
                     />
                     <br />
@@ -180,7 +212,7 @@ export default function Add() {
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    checked={checkbox.linkExt}
+                                    checked={checkbox.linkExt == 'true' ? true : false}
                                     onChange={handleCheckbox}
                                     name="linkExt"
                                     color="primary"
@@ -192,7 +224,7 @@ export default function Add() {
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    checked={checkbox.imageExt}
+                                    checked={checkbox.imageExt == 'true' ? true : false}
                                     onChange={handleCheckbox}
                                     name="imageExt"
                                     color="primary"

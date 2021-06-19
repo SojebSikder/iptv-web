@@ -25701,7 +25701,7 @@ function Add() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: exClasses.toolbar
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
-      children: "Add New Product"
+      children: "Add New Channel"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
       children: msg
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
@@ -25825,21 +25825,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormControlLabel/FormControlLabel.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/InputLabel/InputLabel.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Select/Select.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/MenuItem/MenuItem.js");
-/* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/icons/Save */ "./node_modules/@material-ui/icons/Save.js");
-/* harmony import */ var _styles_pageStyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../styles/pageStyle */ "./resources/js/admin/styles/pageStyle.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _api_category__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../api/category */ "./resources/js/admin/api/category.js");
-/* harmony import */ var _api_Post__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../api/Post */ "./resources/js/admin/api/Post.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _classes_Config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../classes/Config */ "./resources/js/admin/classes/Config.js");
+/* harmony import */ var _AlertMsg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../AlertMsg */ "./resources/js/admin/components/AlertMsg.jsx");
+/* harmony import */ var _helpers_UrlHelper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../helpers/UrlHelper */ "./resources/js/admin/helpers/UrlHelper.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormControlLabel/FormControlLabel.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/InputLabel/InputLabel.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Select/Select.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/MenuItem/MenuItem.js");
+/* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/Save */ "./node_modules/@material-ui/icons/Save.js");
+/* harmony import */ var _styles_pageStyle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../styles/pageStyle */ "./resources/js/admin/styles/pageStyle.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/Paper.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _api_category__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../api/category */ "./resources/js/admin/api/category.js");
+/* harmony import */ var _api_Post__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../api/Post */ "./resources/js/admin/api/Post.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -25858,7 +25864,11 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+
+
+
  // Material ui
+
 
 
 
@@ -25870,7 +25880,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default)(function (theme) {
+var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default)(function (theme) {
   return {
     root: {
       flexGrow: 1
@@ -25903,68 +25913,87 @@ var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default)(funct
 });
 function Edit(props) {
   // style hook
-  var exClasses = (0,_styles_pageStyle__WEBPACK_IMPORTED_MODULE_1__.default)();
+  var exClasses = (0,_styles_pageStyle__WEBPACK_IMPORTED_MODULE_4__.default)();
   var classes = useStyles(); // end style hook
+  // const [alert_message, setAlert_message] = useState('');
+  // const [alert_message_data, setAlert_message_data] = useState('');
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      msg = _useState2[0],
-      setMsg = _useState2[1];
+      categories = _useState2[0],
+      setCategories = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState4 = _slicedToArray(_useState3, 2),
-      categories = _useState4[0],
-      setCategories = _useState4[1]; // Methods for handling add post
+      msg = _useState4[0],
+      setMsg = _useState4[1];
 
-
-  var handleAddPost = function handleAddPost() {
+  var handleImageSave = function handleImageSave() {
+    // update photo
     var data = new FormData();
-    data.append('title', textInput.name);
-    data.append('link', textInput.link);
-    data.append('is_image_ext', checkbox.imageExt.toString());
-    data.append('is_link_ext', checkbox.linkExt.toString());
-
-    if (image.name != null) {
-      data.append('image', image, image.name);
-    }
-
-    data.append('status', checkbox.status == true ? 1 : 0);
-    data.append('category_id', productCategory);
+    data.append('image', image, image.name);
     data.append('_method', 'PATCH');
-    _api_Post__WEBPACK_IMPORTED_MODULE_3__.default.updatePost(props.match.params.id, data, function (res) {
-      //console.log(res);
-      updateUi();
-      setMsg("Tv updated successfully!");
+    _api_Post__WEBPACK_IMPORTED_MODULE_6__.default.updatePostPhoto(props.match.params.id, data, function (res) {
+      console.log(res.data);
+      setMsg(res.data.message);
     }, function (err) {
-      //console.log(err);
-      setMsg("Something wrong :(");
+      //alert(err);
+      if (err == "Error: Request failed with status code 401") {
+        _helpers_UrlHelper__WEBPACK_IMPORTED_MODULE_3__.default.fallback(props);
+      }
+
+      console.log(err);
     });
-    setMsg("");
+  }; // Methods for handling add post
+
+
+  var handleEditPost = function handleEditPost() {
+    var data = {
+      title: textInput.productName,
+      link: textInput.productDetails,
+      is_image_ext: checkbox.qntyPcType,
+      is_link_ext: checkbox.qntyStripType,
+      //Image: image,
+      status: checkbox.publish,
+      category_id: productCategory
+    };
+    _api_Post__WEBPACK_IMPORTED_MODULE_6__.default.updatePost(props.match.params.id, data, function (res) {
+      //console.log("test image");
+      //console.log(image);
+      updateUi();
+    }, function (err) {
+      //alert(err);
+      if (err == "Error: Request failed with status code 401") {
+        _helpers_UrlHelper__WEBPACK_IMPORTED_MODULE_3__.default.fallback(props);
+      }
+
+      console.log(err);
+      console.log("error  image");
+    });
+    console.log("nothing  image");
   };
 
   var updateUi = function updateUi() {
-    _api_Post__WEBPACK_IMPORTED_MODULE_3__.default.getPostById(props.match.params.id, function (res) {
+    // fetch post  by id
+    // setTextInput({ ...textInput, ["productName"]: "Hello World" });
+    _api_Post__WEBPACK_IMPORTED_MODULE_6__.default.getPostById(props.match.params.id, function (res) {
       var _objectSpread2, _objectSpread3;
 
       // console.log(res.data.data[0].title);
       // Set text value
-      setTextInput(_objectSpread(_objectSpread({}, textInput), {}, (_objectSpread2 = {}, _defineProperty(_objectSpread2, "name", res.data.data[0].title == null ? "" : res.data.data[0].title), _defineProperty(_objectSpread2, "link", res.data.data[0].link == null ? "" : res.data.data[0].link), _objectSpread2))); // set checkbox value
+      setTextInput(_objectSpread(_objectSpread({}, textInput), {}, (_objectSpread2 = {}, _defineProperty(_objectSpread2, "productName", res.data.data[0].title == null ? "" : res.data.data[0].title), _defineProperty(_objectSpread2, "productDetails", res.data.data[0].link == null ? "" : res.data.data[0].link), _objectSpread2))); // set checkbox value
 
-      setCheckbox(_objectSpread(_objectSpread({}, checkbox), {}, (_objectSpread3 = {}, _defineProperty(_objectSpread3, "imageExt", res.data.data[0].is_image_ext), _defineProperty(_objectSpread3, "linkExt", res.data.data[0].is_link_ext), _defineProperty(_objectSpread3, "status", res.data.data[0].status), _objectSpread3))); // set product category
+      setCheckbox(_objectSpread(_objectSpread({}, checkbox), {}, (_objectSpread3 = {}, _defineProperty(_objectSpread3, "qntyPcType", res.data.data[0].is_image_ext), _defineProperty(_objectSpread3, "qntyStripType", res.data.data[0].is_link_ext), _defineProperty(_objectSpread3, "publish", res.data.data[0].status), _objectSpread3))); // set product category
 
       setProductCategory(res.data.data[0].category_id); // set image
 
       setImage(res.data.data[0].image);
-    }, function (err) {});
-    _api_category__WEBPACK_IMPORTED_MODULE_2__.default.getCategories(function (res) {
-      setCategories(res.data.data);
-    }, function (err) {});
-  };
+    }, function (err) {}); // end fetch post by id
+    // fetch categories
 
-  var reset = function reset() {
-    setTextInput(_defineProperty({}, "name", ""));
-    setTextInput(_defineProperty({}, "link", ""));
-    setImage("");
+    _api_category__WEBPACK_IMPORTED_MODULE_5__.default.getCategories(function (res) {
+      setCategories(res.data.data);
+    }, function (err) {}); // end fetching category
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -25987,17 +26016,17 @@ function Edit(props) {
       setProductCategory = _useState8[1];
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    name: '',
-    link: ''
+    productName: '',
+    productDetails: ''
   }),
       _useState10 = _slicedToArray(_useState9, 2),
       textInput = _useState10[0],
       setTextInput = _useState10[1];
 
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    imageExt: 'false',
-    linkExt: 'false',
-    status: true
+    qntyPcType: 'true',
+    qntyStripType: 'true',
+    publish: true
   }),
       _useState12 = _slicedToArray(_useState11, 2),
       checkbox = _useState12[0],
@@ -26017,121 +26046,152 @@ function Edit(props) {
 
 
   var handleCheckbox = function handleCheckbox(event) {
-    setCheckbox(_objectSpread(_objectSpread({}, checkbox), {}, _defineProperty({}, event.target.name, event.target.checked)));
+    if (event.target.name == "publish") {
+      setCheckbox(_objectSpread(_objectSpread({}, checkbox), {}, _defineProperty({}, "publish", event.target.checked == true ? 1 : 2)));
+    } else {
+      setCheckbox(_objectSpread(_objectSpread({}, checkbox), {}, _defineProperty({}, event.target.name, event.target.checked == true ? 'true' : 'false')));
+    }
   }; // end element hook method
 
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: exClasses.content,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: exClasses.toolbar
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
-      children: "Add New Product"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
-      children: msg
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+      children: "Edit Channel"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
+      method: "post",
       autoComplete: "off",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__.default, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+        children: msg
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__.default, {
         container: true,
-        direction: "column",
-        justify: "space-between",
+        direction: "row",
+        justify: "flex-start",
         alignItems: "center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
-          id: "outlined-basic",
-          label: "Channel Name",
-          variant: "outlined",
-          required: true,
-          name: "name",
-          value: textInput.name,
-          onChange: handleTextInput
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
-          id: "outlined-basic",
-          label: "Tv Link",
-          variant: "outlined",
-          multiline: true,
-          rows: 4,
-          name: "link",
-          value: textInput.link,
-          onChange: handleTextInput
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__.default, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__.default, {
           container: true,
           direction: "column",
           justify: "flex-start",
           alignItems: "center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
-            control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
-              checked: checkbox.linkExt == 'true' ? true : false,
-              onChange: handleCheckbox,
-              name: "linkExt",
-              color: "primary"
-            }),
-            label: "Is Link External"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
-            control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
-              checked: checkbox.imageExt == 'true' ? true : false,
-              onChange: handleCheckbox,
-              name: "imageExt",
-              color: "primary"
-            }),
-            label: "Is Image External"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-          accept: "image/*",
-          className: classes.input,
-          id: "contained-button-file",
-          name: "image",
-          value: "",
-          onChange: onFileChange,
-          type: "file"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-          htmlFor: "contained-button-file",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__.default, {
-            variant: "contained",
-            color: "primary",
-            component: "span",
-            children: "Upload Tv Channel Photo"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__.default, {
-          className: classes.formControl,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
-            id: "demo-simple-select-label",
-            children: "Tv Category"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_13__.default, {
-            labelId: "demo-simple-select-label",
-            id: "demo-simple-select",
-            value: productCategory,
-            onChange: handleProductCategory,
-            required: true,
-            children: categories.map(function (category) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__.default, {
-                value: category.id,
-                children: category.title
-              }, category.id);
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_11__.default, {
+            variant: "outlined",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+              height: "200",
+              width: "200",
+              src: _classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getBase() + "/uploads/product/" + image
             })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
-          control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
-            checked: checkbox.status,
-            onChange: handleCheckbox,
-            name: "status",
-            color: "primary"
-          }),
-          label: "Publish"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__.default, {
-          container: true,
-          direction: "row",
-          justify: "space-around",
-          alignItems: "flex-start",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+            accept: "image/*",
+            className: classes.input,
+            id: "contained-button-file",
+            name: "image",
+            value: "",
+            onChange: onFileChange,
+            type: "file"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+            htmlFor: "contained-button-file",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
+              variant: "contained",
+              color: "primary",
+              component: "span",
+              children: "Upload Product Photo"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
             variant: "contained",
             color: "primary",
             className: classes.button,
-            onClick: handleAddPost,
-            startIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_15__.default, {}),
-            children: "Save"
-          })
+            onClick: handleImageSave,
+            startIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_13__.default, {}),
+            children: "Save Image"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__.default, {
+          container: true,
+          direction: "column",
+          justify: "space-between",
+          alignItems: "center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__.default, {
+            id: "outlined-basic",
+            label: "Product Name",
+            variant: "outlined",
+            required: true,
+            name: "productName",
+            value: textInput.productName,
+            onChange: handleTextInput
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__.default, {
+            id: "outlined-basic",
+            label: "Product Details",
+            variant: "outlined",
+            multiline: true,
+            rows: 4,
+            name: "productDetails",
+            value: textInput.productDetails,
+            onChange: handleTextInput
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__.default, {
+            container: true,
+            direction: "column",
+            justify: "flex-start",
+            alignItems: "center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_15__.default, {
+              control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__.default, {
+                checked: checkbox.qntyPcType == 'true' ? true : false,
+                onChange: handleCheckbox,
+                name: "qntyPcType",
+                color: "primary"
+              }),
+              label: "Is Image External"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_15__.default, {
+              control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__.default, {
+                checked: checkbox.qntyStripType == 'true' ? true : false,
+                onChange: handleCheckbox,
+                name: "qntyStripType",
+                color: "primary"
+              }),
+              label: "Is Link External"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_17__.default, {
+            className: classes.formControl,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_18__.default, {
+              id: "demo-simple-select-label",
+              children: "Product Category"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_19__.default, {
+              labelId: "demo-simple-select-label",
+              id: "demo-simple-select",
+              value: productCategory,
+              onChange: handleProductCategory,
+              required: true,
+              children: categories.map(function (category) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_20__.default, {
+                  value: category.id,
+                  children: category.title
+                }, category.id);
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_15__.default, {
+            control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__.default, {
+              checked: checkbox.publish == 1 ? true : false,
+              onChange: handleCheckbox,
+              name: "publish",
+              color: "primary"
+            }),
+            label: "Publish"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__.default, {
+            container: true,
+            direction: "row",
+            justify: "space-around",
+            alignItems: "flex-start",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
+              variant: "contained",
+              color: "primary",
+              className: classes.button,
+              onClick: handleEditPost,
+              startIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_13__.default, {}),
+              children: "Save"
+            })
+          })]
         })]
-      })
+      })]
     })]
   });
 }

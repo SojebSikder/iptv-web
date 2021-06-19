@@ -101,11 +101,19 @@ class TvController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $data = Tv::where('id', $id);
+        $data = Tv::where('id', $id)->first();
+
         $data->title = $request->input('title');
+
         $data->link = $request->input('link');
-        $data->is_link_ext = $request->input('is_link_ext');
-        $data->is_image_ext = $request->input('is_image_ext');
+
+        if ($request->input('is_link_ext')) {
+            $data->is_link_ext = $request->input('is_link_ext');
+        }
+
+        if ($request->input('is_image_ext')) {
+            $data->is_image_ext = $request->input('is_image_ext');
+        }
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -114,7 +122,11 @@ class TvController extends Controller
 
             $data->image = $filename;
         }
-        $data->status = $request->input('status');
+
+        if ($request->input('status')) {
+            $data->status = $request->input('status');
+        }
+
         // set updated at time
         $data->updated_at = Carbon::now()->toDateTimeString();
         $data->save();

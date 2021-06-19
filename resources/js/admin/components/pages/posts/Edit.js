@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import Config from '../../../classes/Config';
+import AlertMsg from '../../AlertMsg';
+import UrlHelper from '../../../helpers/UrlHelper';
 // Material ui
 import { Button, Checkbox, FormControl, FormControlLabel, InputLabel, makeStyles, MenuItem, Select, TextField } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
@@ -7,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CategoryApi from '../../../api/category';
 import PostApi from '../../../api/Post';
+import { update } from 'lodash';
 // End material ui
 
 
@@ -46,59 +50,80 @@ export default function Edit(props) {
     const classes = useStyles();
     // end style hook
 
+    // const [alert_message, setAlert_message] = useState('');
+    // const [alert_message_data, setAlert_message_data] = useState('');
+    const [categories, setCategories] = useState([]);
     const [msg, setMsg] = useState('');
 
-    const [categories, setCategories] = useState([]);
-
-    // Methods for handling add post
-    const handleAddPost = () => {
+    const handleImageSave = () => {
+        // update photo
         const data = new FormData();
-
-        data.append('title', textInput.name);
-        data.append('link', textInput.link);
-
-        data.append('is_image_ext', checkbox.imageExt.toString());
-        data.append('is_link_ext', checkbox.linkExt.toString());
-
-        if (image.name != null) {
-            data.append('image', image, image.name);
-        }
-
-        data.append('status', checkbox.status == true ? 1 : 0);
-        data.append('category_id', productCategory);
+        data.append('image', image, image.name);
         data.append('_method', 'PATCH');
 
-        PostApi.updatePost(props.match.params.id, data, (res) => {
-            //console.log(res);
-            updateUi();
-            setMsg("Tv updated successfully!");
+        PostApi.updatePostPhoto(props.match.params.id, data, (res) => {
+            console.log(res.data);
+            setMsg(res.data.message);
         }, (err) => {
-            //console.log(err);
-            setMsg("Something wrong :(");
+            //alert(err);
+            if (err == "Error: Request failed with status code 401") {
+                UrlHelper.fallback(props);
+            }
+            console.log(err);
+        });
+    }
+    // Methods for handling add post
+    const handleEditPost = () => {
+
+
+        const data = {
+            title: textInput.productName,
+            link: textInput.productDetails,
+
+            is_image_ext: checkbox.qntyPcType,
+            is_link_ext: checkbox.qntyStripType,
+
+            //Image: image,
+            status: checkbox.publish,
+            category_id: productCategory,
+        }
+
+        PostApi.updatePost(props.match.params.id, data, (res) => {
+            //console.log("test image");
+            //console.log(image);
+            updateUi();
+        }, (err) => {
+            //alert(err);
+            if (err == "Error: Request failed with status code 401") {
+                UrlHelper.fallback(props);
+            }
+            console.log(err);
+
+            console.log("error  image");
         });
 
-        setMsg("");
-
+        console.log("nothing  image");
 
     }
 
     const updateUi = () => {
-
+        // fetch post  by id
+        // setTextInput({ ...textInput, ["productName"]: "Hello World" });
         PostApi.getPostById(props.match.params.id, (res) => {
             // console.log(res.data.data[0].title);
             // Set text value
             setTextInput({
                 ...textInput,
-                ["name"]: res.data.data[0].title == null ? "" : res.data.data[0].title,
-                ["link"]: res.data.data[0].link == null ? "" : res.data.data[0].link,
+                ["productName"]: res.data.data[0].title == null ? "" : res.data.data[0].title,
+                ["productDetails"]: res.data.data[0].link == null ? "" : res.data.data[0].link,
             });
 
             // set checkbox value
             setCheckbox({
                 ...checkbox,
-                ["imageExt"]: res.data.data[0].is_image_ext,
-                ["linkExt"]: res.data.data[0].is_link_ext,
-                ["status"]: res.data.data[0].status,
+                ["qntyPcType"]: res.data.data[0].is_image_ext,
+                ["qntyStripType"]: res.data.data[0].is_link_ext,
+                ["publish"]: res.data.data[0].status,
             });
 
             // set product category
@@ -108,19 +133,14 @@ export default function Edit(props) {
         }, (err) => {
 
         });
-
-
+        // end fetch post by id
+        // fetch categories
         CategoryApi.getCategories((res) => {
             setCategories(res.data.data);
         }, (err) => {
 
         });
-    }
-
-    const reset = () => {
-        setTextInput({ ["name"]: "" });
-        setTextInput({ ["link"]: "" });
-        setImage("");
+        // end fetching category
     }
 
     useEffect(() => {
@@ -139,14 +159,14 @@ export default function Edit(props) {
     const [productCategory, setProductCategory] = useState('');
 
     const [textInput, setTextInput] = useState({
-        name: '',
-        link: '',
+        productName: '',
+        productDetails: '',
     });
 
     const [checkbox, setCheckbox] = useState({
-        imageExt: 'false',
-        linkExt: 'false',
-        status: true,
+        qntyPcType: 'true',
+        qntyStripType: 'true',
+        publish: true,
     });
     // end element hook
     // element hook method
@@ -154,166 +174,214 @@ export default function Edit(props) {
     const handleTextInput = (event) => {
         setTextInput({ ...textInput, [event.target.name]: event.target.value });
     };
+
     // for dropdown category
     const handleProductCategory = (event) => {
         setProductCategory(event.target.value);
     };
     // for checkbox
     const handleCheckbox = (event) => {
-        setCheckbox({ ...checkbox, [event.target.name]: event.target.checked });
+        if (event.target.name == "publish") {
+            setCheckbox({ ...checkbox, ["publish"]: event.target.checked == true ? 1 : 2 });
+        } else {
+            setCheckbox({ ...checkbox, [event.target.name]: event.target.checked == true ? 'true' : 'false' });
+        }
+
     };
     // end element hook method
     return (
         <div className={exClasses.content}>
             <div className={exClasses.toolbar} />
+            <h1>Edit Channel</h1>
+            <form method="post" autoComplete="off">
 
-            <h1>Add New Product</h1>
-
-            <h1>{msg}</h1>
-
-            <form autoComplete="off">
+                <h1>{msg}</h1>
 
                 <Grid
                     container
-                    direction="column"
-                    justify="space-between"
+                    direction="row"
+                    justify="flex-start"
                     alignItems="center"
                 >
 
-                    <TextField
-                        id="outlined-basic"
-                        label="Channel Name"
-                        variant="outlined"
-                        required
-                        name="name"
-                        value={textInput.name}
-                        onChange={handleTextInput}
-                    />
-                    <br />
-
-                    <TextField
-                        id="outlined-basic"
-                        label="Tv Link"
-                        variant="outlined"
-                        multiline
-                        rows={4}
-                        name="link"
-                        value={textInput.link}
-                        onChange={handleTextInput}
-                    />
-                    <br />
                     <Grid
                         container
                         direction="column"
                         justify="flex-start"
                         alignItems="center"
                     >
-
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={checkbox.linkExt == 'true' ? true : false}
-                                    onChange={handleCheckbox}
-                                    name="linkExt"
-                                    color="primary"
-                                />
-
-                            }
-                            label="Is Link External"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={checkbox.imageExt == 'true' ? true : false}
-                                    onChange={handleCheckbox}
-                                    name="imageExt"
-                                    color="primary"
-                                />
-
-                            }
-                            label="Is Image External"
-                        />
-
-
-                    </Grid>
-
-                    <br />
-                    <input
-                        accept="image/*"
-                        className={classes.input}
-                        id="contained-button-file"
-                        name="image"
-                        value=""
-                        onChange={onFileChange}
-                        type="file"
-
-                    />
-                    <label htmlFor="contained-button-file">
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            component="span">
-                            Upload Tv Channel Photo
-                        </Button>
-                    </label>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel id="demo-simple-select-label">Tv Category</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={productCategory}
-                            onChange={handleProductCategory}
-                            required
-                        >
-                            {categories.map((category) => (
-                                <MenuItem key={category.id}
-                                    value={category.id}
-                                >
-                                    {category.title}
-                                </MenuItem>
-                            ))}
-                        </Select>
-                    </FormControl>
-                    <br />
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                checked={checkbox.status}
-                                onChange={handleCheckbox}
-                                name="status"
-                                color="primary"
+                        <Paper variant="outlined">
+                            <img
+                                height="200"
+                                width="200"
+                                src={Config.getBase() + "/uploads/product/" + image}
                             />
+                        </Paper>
 
-                        }
-                        label="Publish"
-                    />
-                    <br />
+                        <br />
+                        <input
+                            accept="image/*"
+                            className={classes.input}
+                            id="contained-button-file"
+                            name="image"
+                            value=""
+                            onChange={onFileChange}
+                            type="file"
 
-                    <Grid
-                        container
-                        direction="row"
-                        justify="space-around"
-                        alignItems="flex-start"
-                    >
+                        />
+                        <label htmlFor="contained-button-file">
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                component="span">
+                                Upload Product Photo
+                            </Button>
+                        </label>
+                        <br />
                         <Button
                             variant="contained"
                             color="primary"
                             className={classes.button}
-                            onClick={handleAddPost}
+                            onClick={handleImageSave}
                             startIcon={<SaveIcon />}
                         >
-                            Save
+                            Save Image
                         </Button>
+                        <br />
 
-                        {/* <Button
+                    </Grid>
+
+
+
+                    <Grid
+                        container
+                        direction="column"
+                        justify="space-between"
+                        alignItems="center"
+                    >
+                        <TextField
+                            id="outlined-basic"
+                            label="Product Name"
+                            variant="outlined"
+                            required
+                            name="productName"
+                            value={textInput.productName}
+                            onChange={handleTextInput}
+                        />
+                        <br />
+
+                        <TextField
+                            id="outlined-basic"
+                            label="Product Details"
+                            variant="outlined"
+                            multiline
+                            rows={4}
+                            name="productDetails"
+                            value={textInput.productDetails}
+                            onChange={handleTextInput}
+                        />
+                        <br />
+
+                        <Grid
+                            container
+                            direction="column"
+                            justify="flex-start"
+                            alignItems="center"
+                        >
+
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={checkbox.qntyPcType == 'true' ? true : false}
+                                        onChange={handleCheckbox}
+                                        name="qntyPcType"
+                                        color="primary"
+                                    />
+
+                                }
+                                label="Is Image External"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={checkbox.qntyStripType == 'true' ? true : false}
+                                        onChange={handleCheckbox}
+                                        name="qntyStripType"
+                                        color="primary"
+                                    />
+
+                                }
+                                label="Is Link External"
+                            />
+
+
+                        </Grid>
+
+
+                        <br />
+
+                        <FormControl className={classes.formControl}>
+                            <InputLabel id="demo-simple-select-label">Product Category</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={productCategory}
+                                onChange={handleProductCategory}
+                                required
+                            >
+                                {categories.map((category) => (
+                                    <MenuItem key={category.id}
+                                        value={category.id}
+                                    >
+                                        {category.title}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <br />
+                        <br />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={checkbox.publish == 1 ? true : false}
+                                    onChange={handleCheckbox}
+                                    name="publish"
+                                    color="primary"
+                                />
+
+                            }
+                            label="Publish"
+                        />
+                        <br />
+
+                        <Grid
+                            container
+                            direction="row"
+                            justify="space-around"
+                            alignItems="flex-start"
+                        >
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                onClick={handleEditPost}
+                                startIcon={<SaveIcon />}
+                            >
+                                Save
+                            </Button>
+
+                            {/* <Button
                             className={classes.button}
                             onClick={handleReset}
                             color="secondary">
                             Reset
                         </Button> */}
-                    </Grid>
+                        </Grid>
 
+                    </Grid>
                 </Grid>
+
+
             </form>
 
         </div>
