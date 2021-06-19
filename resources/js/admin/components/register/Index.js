@@ -44,9 +44,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Login(props) {
+export default function Index(props) {
 
     // User information
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     // Error handling variable
@@ -57,6 +58,9 @@ export default function Login(props) {
 
 
     // Get value from input and set state
+    const onChangeName = (e) => {
+        setName(e.target.value);
+    }
     const onChangeEmail = (e) => {
         setEmail(e.target.value);
     }
@@ -67,11 +71,12 @@ export default function Login(props) {
     const onSubmit = (e) => {
         e.preventDefault();
         const user = {
+            name: name,
             email: email,
             password: password
         }
 
-        Auth.login(user, (res) => {
+        Auth.register(user, (res) => {
             if (res.data.success == true) {
                 if (res.data.user.user_type == "admin") {
                     localStorage.setItem("token", res.data.token);
@@ -87,7 +92,7 @@ export default function Login(props) {
                 localStorage.clear();
             }
         }, (err) => {
-            setAlert_message('Somethinh wrong');
+            setAlert_message('Something wrong');
         });
 
 
@@ -107,9 +112,21 @@ export default function Login(props) {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Login
+                    Register
                 </Typography>
                 <form onSubmit={onSubmit} className={classes.form} noValidate>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="name"
+                        label="Name"
+                        name="name"
+                        autoComplete="name"
+                        autoFocus
+                        onChange={onChangeName}
+                    />
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -141,17 +158,12 @@ export default function Login(props) {
                         color="primary"
                         className={classes.submit}
                     >
-                        Login
+                        Register
                     </Button>
                     <Grid container>
-                        <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-                            </Link>
-                        </Grid>
                         <Grid item>
-                            <Link component={RouterLink} to="/admin/register" variant="body2">
-                                {"Don't have an account? Register"}
+                            <Link component={RouterLink} to="/admin/login" variant="body2">
+                                {"Already have an account? Login"}
                             </Link>
                         </Grid>
                     </Grid>

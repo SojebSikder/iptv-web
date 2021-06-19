@@ -18,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::resource('tv', App\Http\Controllers\api\TvController::class);
+
+// Login/Register
+Route::post('/register', [App\Http\Controllers\api\UserController::class, 'register']);
+Route::post('/login', [App\Http\Controllers\api\UserController::class, 'login']);
+Route::post('/logout', [App\Http\Controllers\api\UserController::class, 'logout']);

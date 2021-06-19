@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import AuthenticatedRoute from './AuthenticatedRoute';
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/login/login'
+import Register from './components/register/index'
 import About from './components/pages/About';
 import Error404 from './components/Error404';
 import Settings from './components/pages/Settings';
@@ -28,6 +29,7 @@ export default function Routes() {
 
     return (
         <Switch>
+            <Route exact path='/admin/register' component={Register} />
             <Route exact path='/admin/login' component={Login} />
             <Route exact path='/admin/about' component={About} />
             <AuthenticatedRoute exact path='/admin' component={Dashboard} />

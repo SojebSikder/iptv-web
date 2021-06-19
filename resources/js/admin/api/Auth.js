@@ -44,10 +44,13 @@ const Auth = {
 
     login: (data, successCb, failCb) => {
         axios.post(Config.getUrl() + '/login', data).then(response => {
-            // for (var i in response.data.user) {
-            //     localStorage.setItem("user." + i, res.data.user[i]);
-            //     //SessionService.set("user." + i, res.data.user[i]);
-            // }
+            successCb(response);
+        }).catch(err => {
+            failCb(err);
+        });
+    },
+    register: (data, successCb, failCb) => {
+        axios.post(Config.getUrl() + '/register', data).then(response => {
             successCb(response);
         }).catch(err => {
             failCb(err);
@@ -65,14 +68,6 @@ const Auth = {
 
         localStorage.clear();
     },
-    // checkAuth: (successCb, failCb) => {
-    //     axios.get(Config.getUrl() + '/check-auth', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
-    //         .then(response => {
-    //             successCb(response);
-    //         }).catch(err => {
-    //             failCb(err);
-    //         });
-    // }
 
     checkAuth: (successCb, failCb) => {
 
@@ -84,31 +79,10 @@ const Auth = {
                 .catch(err => {
                     failCb(err);
                 });
-            // if (value == "Error: Request failed with status code 401") {
-            //     return false;
-            // }else{
-            //     return true;
-            // }
         } else {
             return false;
         }
     }
 
-    // checkAuth: () => {
-
-    //     // if(localStorage.getItem("token") != null){
-    //     //     return true
-    //     // }else{
-    //     //     return false;
-    //     // }
-
-    //     if (localStorage.getItem("token") != null) {
-
-    //         return true
-    //     } else {
-    //         return false;
-    //     }
-
-    // }
 };
 export default Auth;
