@@ -24121,8 +24121,7 @@ function Login(props) {
     _api_Auth__WEBPACK_IMPORTED_MODULE_1__.default.login(user, function (res) {
       if (res.data.success == true) {
         if (res.data.user.user_type == "admin") {
-          //localStorage.setItem("token", res.data.token);
-          localStorage.setItem("token", res.data.user.api_token);
+          localStorage.setItem("token", res.data.token);
           localStorage.setItem("userType", res.data.user.user_type);
           setAlert_message('success');
           _helpers_UrlHelper__WEBPACK_IMPORTED_MODULE_4__.default.redirectTo(props, '/admin');
