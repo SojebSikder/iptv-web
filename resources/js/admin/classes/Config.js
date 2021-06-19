@@ -3,7 +3,7 @@
 
 //const URL = process.env.SERVER_URL || "http://localhost";
 
-const URL = "http://54.254.11.137";
+const URL = "http://127.0.0.1:8000";
 //const URL = "http://localhost";
 //const URL = "http://127.0.0.1:8000";
 
@@ -17,14 +17,14 @@ const Config = {
      * @returns {String}
      */
     getAppName: () => {
-        return "HealthCity";
+        return "IPTV";
     },
     /**
      * App Slogan
      * @returns {String}
      */
     getAppSlogan: () => {
-        return "HealthCity";
+        return "IPTV";
     },
     /**
      * Play store link
@@ -39,8 +39,6 @@ const Config = {
      */
     getUrl: () => {
         return URL + '/api';
-        //return 'http://54.254.11.137/api';
-        //return 'http://192.168.10.235/api';
     },
     /**
      * Get server base address
@@ -54,8 +52,6 @@ const Config = {
      */
     getNodeUrl: () => {
         return "https://healthcity-node.herokuapp.com";
-        //return 'http://127.0.0.1:5000';
-        //return 'http://192.168.10.235:5000';
     },
 }
 
