@@ -26538,12 +26538,12 @@ function Index() {
                   color: "primary",
                   className: classes.button,
                   onClick: function onClick() {
-                    return handleDeletePost(post.product_id);
+                    return handleDeletePost(post.id);
                   },
                   startIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_18__.default, {}),
                   children: "Delete"
                 }), " | ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Link, {
-                  to: "/admin/edit/" + post.product_id,
+                  to: "/admin/edit/" + post.id,
                   children: "Edit"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {

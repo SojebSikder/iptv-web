@@ -140,12 +140,10 @@ class TvController extends Controller
     }
     private function removeImage($data)
     {
-        if ($data->image != null) {
 
 
-            if ($data->image != "" && !\File::exists('uploads/tv/' . $data->image)) {
-                @unlink(public_path('uploads/tv/' . $data->image));
-            }
+        if ($data->image != "" && !\File::exists('uploads/tv/' . $data->image)) {
+            @unlink(public_path('uploads/tv/' . $data->image));
         }
     }
 }

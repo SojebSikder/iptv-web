@@ -182,11 +182,11 @@ export default function Index() {
                                         variant="contained"
                                         color="primary"
                                         className={classes.button}
-                                        onClick={() => handleDeletePost(post.product_id)}
+                                        onClick={() => handleDeletePost(post.id)}
                                         startIcon={<DeleteIcon />}
                                     >
                                         Delete
-                                    </Button> | <Link to={"/admin/edit/" + post.product_id}>Edit</Link>
+                                    </Button> | <Link to={"/admin/edit/" + post.id}>Edit</Link>
                                 </TableCell>
 
                                 <TableCell component="th" scope="row">
