@@ -29,62 +29,6 @@ export default function Home() {
             <div className={classes.toolbar} />
             <Typography paragraph>
                 Home
-
-                <Grid
-                    container
-                    direction="column"
-                    justify="space-between"
-                    alignItems="center"
-                >
-
-                    <Grid
-                        container
-                        direction="row"
-                        justify="space-around"
-                        alignItems="center"
-                    >
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            className={classes.button}
-                            component={Link}
-                            to={"/admin/wallet"}
-                        >
-                            Wallet
-                        </Button>
-
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            className={classes.button}
-                            aria-controls="simple-menu"
-                            aria-haspopup="true"
-                            onClick={handleDoctorCategoryClick}
-                        >
-                            Doctor Category
-                        </Button>
-
-                        <Menu
-                            id="simple-menu"
-                            anchorEl={anchorElDoctorCategory}
-                            keepMounted
-                            open={Boolean(anchorElDoctorCategory)}
-                            onClose={handleDoctorCategoryClose}
-                        >
-                            <MenuItem
-                                component={Link}
-                                to={"/admin/doctor-category/add"}
-                                onClick={handleDoctorCategoryClose}>Add Doctor Category</MenuItem>
-                            <MenuItem
-                                component={Link}
-                                to={"/admin/doctor-category"}
-                                onClick={handleDoctorCategoryClose}>All Doctor Category</MenuItem>
-                        </Menu>
-
-                    </Grid>
-
-                </Grid>
-
             </Typography>
         </div>
     )

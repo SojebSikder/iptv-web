@@ -158,7 +158,7 @@ export default function Sidebar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            HealthCity Admin Panel
+            IPTV Admin Panel
           </Typography>
         </Toolbar>
       </AppBar>
@@ -190,7 +190,7 @@ export default function Sidebar() {
 
           <ListItem aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} button >
             <ListItemIcon><DialpadIcon /></ListItemIcon>
-            <ListItemText primary={"Product"} />
+            <ListItemText primary={"TV"} />
           </ListItem>
 
           <Menu
@@ -200,19 +200,10 @@ export default function Sidebar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem component={Link} to={"/admin/addposts"} onClick={handleClose}>Add New Products</MenuItem>
-            <MenuItem component={Link} to={"/admin/allposts"} onClick={handleClose}>All Products</MenuItem>
+            <MenuItem component={Link} to={"/admin/addposts"} onClick={handleClose}>Add New TV Channel</MenuItem>
+            <MenuItem component={Link} to={"/admin/allposts"} onClick={handleClose}>All TV List</MenuItem>
           </Menu>
 
-          <ListItem button component={Link} to={"/admin/order"}>
-            <ListItemIcon><ShoppingCartIcon /></ListItemIcon>
-            <ListItemText primary={"Orders"} />
-          </ListItem>
-
-          <ListItem button component={Link} to={"/admin/prescription"}>
-            <ListItemIcon><VisibilityIcon /></ListItemIcon>
-            <ListItemText primary={"Prescriptions"} />
-          </ListItem>
 
           <ListItem aria-controls="category-menu" aria-haspopup="true" onClick={handleClickCategory} button >
             <ListItemIcon><CategoryIcon /></ListItemIcon>
@@ -231,10 +222,10 @@ export default function Sidebar() {
           </Menu>
 
 
-          <ListItem aria-controls="imageSlider-menu" aria-haspopup="true" onClick={handleClickImageSlider} button >
+          {/* <ListItem aria-controls="imageSlider-menu" aria-haspopup="true" onClick={handleClickImageSlider} button >
             <ListItemIcon><BurstModeIcon /></ListItemIcon>
             <ListItemText primary={"Image Slider"} />
-          </ListItem>
+          </ListItem> */}
 
           <Menu
             id="imageSlider-menu"
@@ -247,26 +238,6 @@ export default function Sidebar() {
             <MenuItem component={Link} to={"/admin/image-slider"} onClick={handleCloseImageSlider}>All Image Slider Image</MenuItem>
           </Menu>
 
-
-          <ListItem button component={Link} to={"/admin/call-session"}>
-            <ListItemIcon><VideoCallIcon /></ListItemIcon>
-            <ListItemText primary={"Call Session"} />
-          </ListItem>
-
-          <ListItem button component={Link} to={"/admin/payment"}>
-            <ListItemIcon><PaymentIcon /></ListItemIcon>
-            <ListItemText primary={"Payments"} />
-          </ListItem>
-
-          <ListItem button component={Link} to={"/admin/notification/send"}>
-            <ListItemIcon><NotificationsIcon /></ListItemIcon>
-            <ListItemText primary={"Send Notification"} />
-          </ListItem>
-
-          <ListItem button component={Link} to={"/admin/user"}>
-            <ListItemIcon><PeopleOutlineIcon /></ListItemIcon>
-            <ListItemText primary={"All User"} />
-          </ListItem>
 
 
         </List>

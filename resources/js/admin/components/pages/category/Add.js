@@ -66,7 +66,7 @@ export default function Add() {
         const data = new FormData();
 
         data.append('title', title);
-        data.append('image', image, image.name);
+        //data.append('image', image, image.name);
 
         CategoryApi.addCategory(data, (res) => {
             setMsg('Category added');
@@ -108,7 +108,7 @@ export default function Add() {
                         value={title}
                         onChange={handleTitleInput}
                     />
-                    <br />
+                    {/* <br />
                     <input
                         accept="image/*"
                         className={classes.input}
@@ -126,7 +126,7 @@ export default function Add() {
                             component="span">
                             Upload Category Photo
                         </Button>
-                    </label>
+                    </label> */}
 
                     <br />
                     <Button

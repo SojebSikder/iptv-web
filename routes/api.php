@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::resource('tv', App\Http\Controllers\api\TvController::class);
+Route::resource('category', App\Http\Controllers\api\CategoryController::class);
 
 // Login/Register
 Route::post('/register', [App\Http\Controllers\api\UserController::class, 'register']);

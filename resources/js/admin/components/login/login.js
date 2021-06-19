@@ -74,7 +74,8 @@ export default function Login(props) {
         Auth.login(user, (res) => {
             if (res.data.success == true) {
                 if (res.data.user.user_type == "admin") {
-                    localStorage.setItem("token", res.data.token);
+                    //localStorage.setItem("token", res.data.token);
+                    localStorage.setItem("token", res.data.user.api_token);
                     localStorage.setItem("userType", res.data.user.user_type);
                     setAlert_message('success');
                     UrlHelper.redirectTo(props, '/admin');

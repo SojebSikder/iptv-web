@@ -26,6 +26,9 @@ class CreateTvsTable extends Migration
 
             $table->string('status')->nullable()->default('true');
 
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+
             $table->timestamps();
         });
     }
