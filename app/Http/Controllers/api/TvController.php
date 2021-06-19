@@ -48,6 +48,7 @@ class TvController extends Controller
         $data->id = uniqid(true);
         $data->title = $request->input('title');
         $data->link = $request->input('link');
+        $data->category_id = $request->input('category_id');
         $data->is_link_ext = $request->input('is_link_ext');
         $data->is_image_ext = $request->input('is_image_ext');
 
@@ -139,8 +140,12 @@ class TvController extends Controller
     }
     private function removeImage($data)
     {
-        if ($data->image != "" && !\File::exists('uploads/tv/' . $data->image)) {
-            @unlink(public_path('uploads/tv/' . $data->image));
+        if ($data->image != null) {
+
+
+            if ($data->image != "" && !\File::exists('uploads/tv/' . $data->image)) {
+                @unlink(public_path('uploads/tv/' . $data->image));
+            }
         }
     }
 }

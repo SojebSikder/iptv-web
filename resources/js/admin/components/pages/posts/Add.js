@@ -60,7 +60,7 @@ export default function Add() {
         data.append('is_image_ext', checkbox.imageExt.toString());
         data.append('is_link_ext', checkbox.linkExt.toString());
 
-        if (image != null) {
+        if (image.name != null) {
             data.append('image', image, image.name);
         }
 
