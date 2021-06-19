@@ -23546,7 +23546,7 @@ var PostApi = {
   // },
   // fetch all post by limit
   getPosts: function getPosts(limit, successCb, failCb) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/posts?recent=2&limit=' + limit, {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/tv?recent=2&limit=' + limit, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("token")
       }
@@ -23558,7 +23558,7 @@ var PostApi = {
   },
   // fetch all post by search
   getPostBySearch: function getPostBySearch(text, successCb, failCb) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/posts?search=' + text, {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/tv?search=' + text, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("token")
       }
@@ -23569,7 +23569,7 @@ var PostApi = {
     });
   },
   getPostById: function getPostById(id, successCb, failCb) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/posts/' + id, {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/tv/' + id, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("token")
       }
@@ -23593,7 +23593,7 @@ var PostApi = {
     //         failCb(err);
     //         //alert(err.response.data.message);
     //     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/posts', data, {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/tv', data, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("token")
       }
@@ -23604,7 +23604,7 @@ var PostApi = {
     });
   },
   updatePost: function updatePost(id, data, successCb, failCb) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().put(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/posts/' + id, data, {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().put(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/tv/' + id, data, {
       crossDomain: true,
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("token")
@@ -23616,7 +23616,7 @@ var PostApi = {
     });
   },
   updatePostPhoto: function updatePostPhoto(id, data, successCb, failCb) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/posts/' + id, data, {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/tv/' + id, data, {
       crossDomain: true,
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("token")
@@ -23628,7 +23628,7 @@ var PostApi = {
     });
   },
   deletePostById: function deletePostById(id, successCb, failCb) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().delete(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/posts/' + id, {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().delete(_classes_Config__WEBPACK_IMPORTED_MODULE_1__.default.getUrl() + '/tv/' + id, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("token")
       }
@@ -25617,7 +25617,11 @@ function Add() {
     data.append('link', textInput.link);
     data.append('is_image_ext', checkbox.imageExt.toString());
     data.append('is_link_ext', checkbox.linkExt.toString());
-    data.append('image', image, image.name);
+
+    if (image != null) {
+      data.append('image', image, image.name);
+    }
+
     data.append('status', checkbox.status == true ? 1 : 0);
     data.append('category_id', productCategory);
     _api_Post__WEBPACK_IMPORTED_MODULE_3__.default.addPosts(data, function (res) {
@@ -25659,7 +25663,7 @@ function Add() {
       setProductCategory = _useState8[1];
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    bane: '',
+    name: '',
     link: ''
   }),
       _useState10 = _slicedToArray(_useState9, 2),
@@ -25667,8 +25671,8 @@ function Add() {
       setTextInput = _useState10[1];
 
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    imageExt: 'false',
-    linkExt: 'false',
+    imageExt: false,
+    linkExt: false,
     status: true
   }),
       _useState12 = _slicedToArray(_useState11, 2),
@@ -25767,7 +25771,7 @@ function Add() {
           className: classes.formControl,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
             id: "demo-simple-select-label",
-            children: "Product Category"
+            children: "Tv Category"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_13__.default, {
             labelId: "demo-simple-select-label",
             id: "demo-simple-select",
@@ -26463,12 +26467,11 @@ function Index() {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // componentDidMount
-    document.addEventListener('scroll', trackScrolling); // Update ui
-
+    //document.addEventListener('scroll', trackScrolling);
+    // Update ui
     updateUi(); // componentWillUnmount
 
-    return function () {
-      document.removeEventListener('scroll', trackScrolling);
+    return function () {//document.removeEventListener('scroll', trackScrolling);
     };
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -26505,28 +26508,15 @@ function Index() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
               children: "Action"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Product Name"
+              children: "Name"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              align: "right",
-              children: "Product Description"
+              children: "Link"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Brand Name"
+              children: "Is Image External"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Price"
+              children: "Is Link External"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Qntity PC Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Qntity Strip Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Qntity Box Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Qntity"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Strip Qntity"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Box Qntity"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-              children: "Product Image"
+              children: "Image"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
               children: "Category"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
@@ -26561,30 +26551,17 @@ function Index() {
                 scope: "row",
                 children: post.title == null ? "" : post.title
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                align: "right",
-                children: post.content == null ? "" : _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.textShorten(post.content)
+                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.link)
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.brand_name)
+                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.is_image_ext)
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.price)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.qnty_pc_type)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.qnty_strip_type)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.qnty_box_type)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.qnty)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.strip_qnty)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.box_qnty)
+                children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.is_link_ext)
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
                 children: _util_Data__WEBPACK_IMPORTED_MODULE_5__.default.isExist(post.image)
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
                 children: post.category == null ? "" : post.category.title
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
-                children: post.published == null ? "" : post.published
+                children: post.status == null ? "" : post.status
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {
                 children: post.created_at
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_16__.default, {

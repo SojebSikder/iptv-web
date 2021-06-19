@@ -118,14 +118,14 @@ export default function Index() {
     // End Scrolling function
     useEffect(() => {
         // componentDidMount
-        document.addEventListener('scroll', trackScrolling);
+        //document.addEventListener('scroll', trackScrolling);
 
         // Update ui
         updateUi();
 
         // componentWillUnmount
         return () => {
-            document.removeEventListener('scroll', trackScrolling);
+            //document.removeEventListener('scroll', trackScrolling);
         }
 
     }, []);
@@ -162,17 +162,11 @@ export default function Index() {
                         <TableRow>
                             <TableCell>SL</TableCell>
                             <TableCell>Action</TableCell>
-                            <TableCell>Product Name</TableCell>
-                            <TableCell align="right">Product Description</TableCell>
-                            <TableCell>Brand Name</TableCell>
-                            <TableCell>Price</TableCell>
-                            <TableCell>Qntity PC Type</TableCell>
-                            <TableCell>Qntity Strip Type</TableCell>
-                            <TableCell>Qntity Box Type</TableCell>
-                            <TableCell>Qntity</TableCell>
-                            <TableCell>Strip Qntity</TableCell>
-                            <TableCell>Box Qntity</TableCell>
-                            <TableCell>Product Image</TableCell>
+                            <TableCell>Name</TableCell>
+                            <TableCell>Link</TableCell>
+                            <TableCell>Is Image External</TableCell>
+                            <TableCell>Is Link External</TableCell>
+                            <TableCell>Image</TableCell>
                             <TableCell>Category</TableCell>
                             <TableCell>Status</TableCell>
                             <TableCell>Created at</TableCell>
@@ -198,18 +192,13 @@ export default function Index() {
                                 <TableCell component="th" scope="row">
                                     {post.title == null ? "" : post.title}
                                 </TableCell>
-                                <TableCell align="right">{post.content == null ? "" : DataUtil.textShorten(post.content)}</TableCell>
-                                <TableCell>{DataUtil.isExist(post.brand_name)}</TableCell>
-                                <TableCell>{DataUtil.isExist(post.price)}</TableCell>
-                                <TableCell>{DataUtil.isExist(post.qnty_pc_type)}</TableCell>
-                                <TableCell>{DataUtil.isExist(post.qnty_strip_type)}</TableCell>
-                                <TableCell>{DataUtil.isExist(post.qnty_box_type)}</TableCell>
-                                <TableCell>{DataUtil.isExist(post.qnty)}</TableCell>
-                                <TableCell>{DataUtil.isExist(post.strip_qnty)}</TableCell>
-                                <TableCell>{DataUtil.isExist(post.box_qnty)}</TableCell>
+
+                                <TableCell>{DataUtil.isExist(post.link)}</TableCell>
+                                <TableCell>{DataUtil.isExist(post.is_image_ext)}</TableCell>
+                                <TableCell>{DataUtil.isExist(post.is_link_ext)}</TableCell>
                                 <TableCell>{DataUtil.isExist(post.image)}</TableCell>
                                 <TableCell>{post.category == null ? "" : post.category.title}</TableCell>
-                                <TableCell>{post.published == null ? "" : post.published}</TableCell>
+                                <TableCell>{post.status == null ? "" : post.status}</TableCell>
                                 <TableCell>{post.created_at}</TableCell>
                                 <TableCell>{post.updated_at}</TableCell>
 

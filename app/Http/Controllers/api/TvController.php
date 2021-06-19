@@ -21,7 +21,7 @@ class TvController extends Controller
     public function index()
     {
         //
-        $data = Tv::all();
+        $data = Tv::with('category')->get();
         return response()->json(['data' => $data], 200);
     }
 
@@ -45,6 +45,7 @@ class TvController extends Controller
     {
         //
         $data = new Tv();
+        $data->id = uniqid(true);
         $data->title = $request->input('title');
         $data->link = $request->input('link');
         $data->is_link_ext = $request->input('is_link_ext');

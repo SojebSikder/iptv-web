@@ -60,7 +60,10 @@ export default function Add() {
         data.append('is_image_ext', checkbox.imageExt.toString());
         data.append('is_link_ext', checkbox.linkExt.toString());
 
-        data.append('image', image, image.name);
+        if (image != null) {
+            data.append('image', image, image.name);
+        }
+
         data.append('status', checkbox.status == true ? 1 : 0);
         data.append('category_id', productCategory);
 
@@ -104,13 +107,13 @@ export default function Add() {
     const [productCategory, setProductCategory] = useState('');
 
     const [textInput, setTextInput] = useState({
-        bane: '',
+        name: '',
         link: '',
     });
 
     const [checkbox, setCheckbox] = useState({
-        imageExt: 'false',
-        linkExt: 'false',
+        imageExt: false,
+        linkExt: false,
         status: true,
     });
     // end element hook
@@ -222,7 +225,7 @@ export default function Add() {
                         </Button>
                     </label>
                     <FormControl className={classes.formControl}>
-                        <InputLabel id="demo-simple-select-label">Product Category</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Tv Category</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
