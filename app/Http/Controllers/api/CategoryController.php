@@ -23,11 +23,11 @@ class CategoryController extends Controller
         //
         if ($request->input('limit')) {
             // this is using on app
-            $category = Category::limit((int)$request->input('limit'))->get();
+            $category = Category::with('tvs')->limit((int)$request->input('limit'))->get();
             return response()->json(['data' => $category], 200);
         } else {
             // This is using on web
-            $category = Category::all();
+            $category = Category::with('tvs')->get();
             return response()->json(['data' => $category], 200);
         }
     }
