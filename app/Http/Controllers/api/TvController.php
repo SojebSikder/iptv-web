@@ -22,7 +22,7 @@ class TvController extends Controller
     public function index()
     {
         //
-        $data = Tv::with('category')->where('status', "true")->get();
+        $data = Tv::with('category')->get();
         return response()->json(['data' => $data], 200);
     }
 
