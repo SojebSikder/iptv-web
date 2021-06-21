@@ -22,23 +22,8 @@ class TvController extends Controller
     public function index(Request $request)
     {
         //
-        if ($request->input('category')) {
-            /**
-             * In case channel with category
-             * Used:
-             * app
-             */
-            $cat = Category::where('title', $request->input('category'))->first();
-
-            $data = Tv::with('category')
-                ->where('category_id', $cat->id)
-                ->where('status', "true")->get();
-
-            return response()->json(['data' => $data], 200);
-        } else {
-            $data = Tv::with('category')->where('status', "true")->get();
-            return response()->json(['data' => $data], 200);
-        }
+        $data = Tv::with('category')->where('status', "true")->get();
+        return response()->json(['data' => $data], 200);
     }
 
     /**
