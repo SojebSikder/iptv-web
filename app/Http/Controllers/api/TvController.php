@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Tv;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -18,11 +19,26 @@ class TvController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $data = Tv::with('category')->get();
-        return response()->json(['data' => $data], 200);
+        if ($request->input('category')) {
+            /**
+             * In case channel with category
+             * Used:
+             * app
+             */
+            $cat = Category::where('title', $request->input('category'))->first();
+
+            $data = Tv::with('category')
+                ->where('category_id', $cat->id)
+                ->where('status', "true")->get();
+
+            return response()->json(['data' => $data], 200);
+        } else {
+            $data = Tv::with('category')->where('status', "true")->get();
+            return response()->json(['data' => $data], 200);
+        }
     }
 
     /**
