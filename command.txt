@@ -1,1 +1,1 @@
-heroku run php artisan comman
+heroku run php artisan command
