@@ -1,0 +1,194 @@
+http://enigmatic-coast-30495.herokuapp.com/
+
+Connection information for default credential.
+Connection info string:
+   "dbname=db6apcke890792 host=ec2-54-235-108-217.compute-1.amazonaws.com port=5432 user=vapytlscmptkbg password=387ee4bd9e6b3e495bf1debf2250d1de24be492ee7d84ca5558c5b877ea9146f sslmode=require"
+Connection URL:
+   postgres://vapytlscmptkbg:387ee4bd9e6b3e495bf1debf2250d1de24be492ee7d84ca5558c5b877ea9146f@ec2-54-235-108-217.compute-1.amazonaws.com:5432/db6apcke890792
+
+
+--no-sound-null-safety
+
+
+---admob Information---
+app ID: ca-app-pub-8545434595834021~1798373962
+bannerAd unit ID: ca-app-pub-8545434595834021/8695982479
+
+
+-----http://iptvbd.net/----------
+http://irbtv.net/flashtv/1080/index.m3u8
+
+
+
+
+
+----------Bangla------------
+asian tv:
+ http://10.16.100.203:8082/bangla/tv_asian.m3u8
+
+Atn Bangla:
+ http://10.16.100.203:8082/bangla/atnbangla.m3u8
+
+ATN NEWS:
+ http://10.16.100.205/hls/news_atn_london720.m3u8
+
+Bangla TV:
+ http://10.16.100.203:8082/bangla/Banglatv_720.m3u8
+
+Bangla Vision:
+ http://10.16.100.203:8082/bangla/vision_bangla.m3u8
+
+Bijoy TV:
+ http://10.16.100.203:8082/bangla/bijoytv.m3u8
+
+CHANNEL 24:
+ http://10.16.100.205/hls/ch24.m3u8
+
+CHANNEL I:
+ http://10.16.100.205/hls/ch_i.m3u8
+
+DBC NEWS:
+ http://10.16.100.203:8082/bangla/dbcnews.m3u8
+
+DEEPTO TV:
+ http://10.16.100.203:8082/bangla/deeptotv.m3u8
+
+DESH TV:
+ http://10.16.100.205/hls/des_tv_local480.m3u8
+
+DIGI BANGLA 24 HD:
+ http://10.16.100.203:8082/bangla/digibangla24.m3u8
+
+EKATTOR TV:
+ http://10.16.100.205/hls/ekattor_hd_720.m3u8
+
+ETV:
+ http://10.16.100.205/hls/21etv.m3u8
+
+GAZI TV:
+ http://10.16.100.203:8082/bangla/gtv.m3u8
+
+JAMUNA TV:
+ http://10.16.100.203:8082/bangla/jamuna_720.m3u8
+
+MOHANA TV:
+ http://10.16.100.205/hls/mohona_tv_720.m3u8
+
+MY TV:
+ http://10.16.100.205/hls/my_tv_720.m3u8
+
+N TV:
+ http://10.16.100.205/hls/ntv_b_720.m3u8
+
+NAGORIK TV:
+ http://10.16.100.203:8082/bangla/nagorik.m3u8
+
+NEWS 24:
+ http://10.16.100.203:8082/bangla/24newshd_720.m3u8
+
+RTV:
+ http://10.16.100.203:8082/bangla/TV_R.m3u8
+
+----------Hindi-------------
+AND TV:
+ http://10.16.100.208:8082/hindi/andtv_1stop.m3u8
+
+COLORS:
+ http://10.16.100.208:8082/hindi/colors_in_1stop.m3u8
+
+SONY TV:
+ http://10.16.100.208:8082/hindi/sonytv_1stop_in.m3u8
+
+STAR PLUS:
+ http://10.16.100.208:8082/hindi/starplus_hd_1stop_in.m3u8
+
+ZEE TV:
+ http://10.16.100.208:8082/hindi/ztvhd_1stop_in.m3u8
+
+---------Indian Bangla------
+AKASH AATH:
+
+COLORS BANGLA:
+ http://10.16.100.205/hls/colorsbd480.m3u8
+
+SONY 8:
+ http://10.16.100.203:8082/bangla/sonyaath_1stop_in.m3u8
+
+STAR JALSHA:
+ http://10.16.100.203:8082/bangla/starjalsha_1stop_bd.m3u8
+
+ZEE BANGLA:
+ http://10.16.100.203:8082/bangla/zbangla_1stop_in.m3u8
+
+---------Movies-------------
+AND PICKTURES HD:
+ http://10.16.100.208:8082/hindi/&picture_1stop_in.m3u8
+
+B4 MOVIES:
+ http://10.16.100.208:8082/hindi/B4Umovies_1stop_in.m3u8
+
+WOW CINEMA:
+ http://10.16.100.208:8082/hindi/wowmovies_1stop_in.m3u8
+
+---------Music-------------
+9XM:
+
+B4U:
+ http://10.16.100.208:8082/hindi/b4u_music_1stop_bd.m3u8
+
+DHOOM MUSIC:
+
+GAAN BANGLA:
+ http://10.16.100.203:8082/bangla/ganbangla_1stop_hd.m3u8
+
+MASTI:
+ http://10.16.100.207:8082/sports/mtuness.m3u8
+
+SANGEET BANGLA:
+ http://10.16.100.207:8082/sports/sangeet_bangla.m3u8
+
+-------------Sports---------
+GTV:
+ http://10.16.100.207:8082/sports/gaziTv_HD_local.m3u8
+
+SONY SIX HD:
+ http://10.16.100.207:8082/sports/sony_6_TH.m3u8
+
+SONY SIX HD (3):
+ http://10.16.100.203:8082/bangla/TH_sony_six.m3u8
+
+SONY SIX HD
+ http://10.16.100.203:8082/bangla/sony6_techohat_hd.m3u8
+
+SONY SIX HD (1):
+ http://10.16.100.207:8082/sports/sony_six_uk.m3u8
+
+SONY SIX HD (2):
+ http://10.16.100.207:8082/sports/sony_6_uk_bkp.m3u8
+
+SONY TEN 1 HD:
+ http://10.16.100.207:8082/sports/sony_ten_1_ln.m3u8
+ 
+SONY TEN 2
+ http://10.16.100.203:8082/bangla/ten_2_720.m3u8
+
+SONY TEN 2 (2):
+ http://10.16.100.207:8082/sports/sonyTen_2_hd_ln.m3u8
+
+SONY TEN 3:
+ http://10.16.100.207:8082/sports/sony_Ten3_ln.m3u8
+
+STAR SPORTS 1:
+ http://10.16.100.207:8082/sports/s_sports1_onestop.m3u8
+
+STAR SPORTS SELECT:
+ http://10.16.100.207:8082/sports/starsports_select1.m3u8
+
+T SPORTS
+ http://10.16.100.207:8082/sports/sportst.m3u8
+
+TSPORTS (3)
+ http://10.16.100.203:8082/bangla/T_sport_1stop.m3u8
+
+
+https://www.programmersought.com/article/84314488287/
