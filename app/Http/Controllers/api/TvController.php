@@ -22,7 +22,8 @@ class TvController extends Controller
     public function index()
     {
         //
-        $data = Tv::with('category')->get();
+        $data = Tv::orderBy('title', 'ASC')
+            ->with('category')->get();
         return response()->json(['data' => $data], 200);
     }
 
