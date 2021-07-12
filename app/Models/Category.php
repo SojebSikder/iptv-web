@@ -11,6 +11,7 @@ class Category extends Model
 
     public function tvs()
     {
-        return $this->hasMany(Tv::class, 'category_id');
+        return $this->hasMany(Tv::class, 'category_id')
+            ->orderBy('title', 'ASC');
     }
 }
