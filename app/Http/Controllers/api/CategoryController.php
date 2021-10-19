@@ -28,7 +28,7 @@ class CategoryController extends Controller
 
             $category = Category::orderBy('title', 'ASC')->with(['tvs' => function($q) {
                 // Query the name field in status table
-                $q->where('status', 'true'); // '=' is optional
+                $q->where('status', '1'); // '=' is optional
             }]);
 
             return response()->json(['data' => $category], 200);
