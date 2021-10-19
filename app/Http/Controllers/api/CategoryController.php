@@ -36,7 +36,6 @@ class CategoryController extends Controller
             // This is using on web
             $category = Category::orderBy('title', 'ASC')
                 ->with('tvs')->get();
-            $category->tvs->where('status', 'true');
             return response()->json(['data' => $category], 200);
         }
     }
