@@ -26,16 +26,23 @@ class CategoryController extends Controller
             // $category = Category::orderBy('title', 'ASC')
             //     ->with('tvs')->limit((int)$request->input('limit'))->get();
 
-            $category = Category::orderBy('title', 'ASC')->with(['tvs' => function($q) {
+            $category = Category::orderBy('title', 'ASC')->with(['tvs' => function ($q) {
                 // Query the name field in status table
                 $q->where('status', '1'); // '=' is optional
             }]);
 
             return response()->json(['data' => $category], 200);
         } else {
-            // This is using on web
-            $category = Category::orderBy('title', 'ASC')
-                ->with('tvs')->get();
+            // This is using on app
+            // $category = Category::orderBy('title', 'ASC')
+            //     ->with('tvs')->get();
+
+            $category = Category::orderBy('title', 'ASC')->with(['tvs' => function ($q) {
+                // Query the name field in status table
+                $q->where('status', '1'); // '=' is optional
+            }]);
+
+
             return response()->json(['data' => $category], 200);
         }
     }
