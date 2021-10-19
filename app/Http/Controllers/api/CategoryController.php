@@ -24,12 +24,15 @@ class CategoryController extends Controller
         if ($request->input('limit')) {
             // this is using on app
             $category = Category::orderBy('title', 'ASC')
-            ->with('tvs')->limit((int)$request->input('limit'))->get();
+                ->with('tvs')->limit((int)$request->input('limit'))->get();
+            $category->tvs->where('status', 'true');
+
             return response()->json(['data' => $category], 200);
         } else {
             // This is using on web
             $category = Category::orderBy('title', 'ASC')
-            ->with('tvs')->get();
+                ->with('tvs')->get();
+            $category->tvs->where('status', 'true');
             return response()->json(['data' => $category], 200);
         }
     }
