@@ -34,13 +34,10 @@ class CategoryController extends Controller
             return response()->json(['data' => $category], 200);
         } else {
             // This is using on app
-            // $category = Category::orderBy('title', 'ASC')
-            //     ->with('tvs')->get();
+            $category = Category::orderBy('title', 'ASC')
+                ->with('tvs')->get();
 
-            $category = Category::orderBy('title', 'ASC')->with(['tvs' => function ($q) {
-                // Query the name field in status table
-                $q->where('status', '1'); // '=' is optional
-            }]);
+
 
 
             return response()->json(['data' => $category], 200);
