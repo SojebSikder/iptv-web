@@ -1,16 +1,9 @@
 
-//dotenv.config({ path: path.resolve(__dirname + '/.env') });
-
-//const URL = process.env.SERVER_URL || "http://localhost";
-
-const URL = "http://enigmatic-coast-30495.herokuapp.com";
-//const URL = "http://localhost";
-//const URL = "http://127.0.0.1:8000";
+const URL = "https://enigmatic-coast-30495.herokuapp.com";
 
 /**
  * Basic Configuration
  */
-
 const Config = {
     /**
      * App Name
@@ -45,7 +38,6 @@ const Config = {
      */
     getBase: () => {
         return URL;
-        //return 'http://192.168.10.235';
     },
     /**
      * Get nodejs api address
