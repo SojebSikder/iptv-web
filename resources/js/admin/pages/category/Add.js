@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import usePageStyles from "../../styles/pageStyle";
 import { Button, Grid, TextField } from "@material-ui/core";
 import CategoryApi from "../../api/category";
+import { CustomError, CustomSuccess } from "../../components/messages/CustomMsg";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,7 +41,8 @@ export default function Add() {
     const classes = useStyles();
     const classesEx = usePageStyles();
 
-    const [msg, setMsg] = useState("");
+    const [error_message, setError_message] = useState("");
+    const [message, setMessage] = useState("");
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
 
@@ -67,16 +69,14 @@ export default function Add() {
         CategoryApi.addCategory(
             data,
             (res) => {
-                setMsg("Category added");
+                setMessage(res.data.message);
                 reset();
             },
             (err) => {
-                setMsg(err);
+                setError_message(err.response.data.message);
             }
         );
     };
-
-    useEffect(() => {}, []);
 
     return (
         <div className={classesEx.content}>
@@ -84,7 +84,8 @@ export default function Add() {
 
             <h1>Add Category</h1>
 
-            <h1>{msg}</h1>
+            {error_message ? <CustomError msg={error_message} /> : null}
+            {message ? <CustomSuccess msg={message} /> : null}
 
             <form autoComplete="off">
                 <Grid

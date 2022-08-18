@@ -119,11 +119,9 @@ export default function Edit(props) {
 
     const updateUi = () => {
         // fetch post  by id
-        // setTextInput({ ...textInput, ["productName"]: "Hello World" });
         PostApi.getPostById(
             props.match.params.id,
             (res) => {
-                // console.log(res.data.data[0].title);
                 // Set text value
                 setTextInput({
                     ...textInput,

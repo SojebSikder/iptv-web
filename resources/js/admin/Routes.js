@@ -6,7 +6,6 @@ import Login from "./pages/login/login";
 import Register from "./pages/register/index";
 import About from "./pages/About";
 import Error404 from "./components/Error404";
-import Settings from "./pages/Settings";
 
 export default function Routes() {
     // useEffect(() => {
@@ -29,7 +28,7 @@ export default function Routes() {
             <AuthenticatedRoute
                 exact
                 path="/admin/settings"
-                component={Settings}
+                component={Dashboard}
             />
             {/* Admin drawer  */}
             <AuthenticatedRoute exact path="/admin" component={Dashboard} />

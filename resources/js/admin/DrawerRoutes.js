@@ -7,17 +7,14 @@ import AllPost from "./pages/posts/Index";
 import AddPost from "./pages/posts/Add";
 import EditPost from "./pages/posts/Edit";
 
-import AddNotification from "./pages/notification/Add";
-
 import Category from "./pages/category/Index";
 import AddCategory from "./pages/category/Add";
 import EditCategory from "./pages/category/Edit";
 
-import ImageSlider from "./pages/image_slider/Index";
-import AddImageSlider from "./pages/image_slider/Add";
-
 import User from "./pages/user/Index";
 import EditUser from "./pages/user/User";
+
+import Settings from "./pages/Settings";
 
 export default function DrawerRoutes() {
     return (
@@ -55,28 +52,17 @@ export default function DrawerRoutes() {
                 component={EditCategory}
             />
 
-            <AuthenticatedRoute
-                exact
-                path="/admin/image-slider"
-                component={ImageSlider}
-            />
-            <AuthenticatedRoute
-                exact
-                path="/admin/image-slider/add"
-                component={AddImageSlider}
-            />
-
-            <AuthenticatedRoute
-                exact
-                path="/admin/notification/send"
-                component={AddNotification}
-            />
-
             <AuthenticatedRoute exact path="/admin/user" component={User} />
             <AuthenticatedRoute
                 exact
                 path="/admin/user/:id"
                 component={EditUser}
+            />
+
+            <AuthenticatedRoute
+                exact
+                path="/admin/settings"
+                component={Settings}
             />
         </Switch>
     );

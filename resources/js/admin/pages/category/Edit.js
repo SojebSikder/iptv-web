@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import usePageStyles from "../../styles/pageStyle";
 import CategoryApi from "../../api/category";
 import Config from "../../config/app";
+import { CustomError, CustomSuccess } from "../../components/messages/CustomMsg";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,7 +40,8 @@ export default function Edit(props) {
     const classes = useStyles();
     const classesEx = usePageStyles();
 
-    const [msg, setMsg] = useState("");
+    const [error_message, setError_message] = useState("");
+    const [message, setMessage] = useState("");
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
     const [imageChanged, setImageChanged] = useState();
@@ -65,10 +67,10 @@ export default function Edit(props) {
             props.match.params.id,
             data,
             (res) => {
-                setMsg("Category Updated");
+                setMessage(res.data.message);
             },
             (err) => {
-                setMsg(err);
+                setError_message(err.response.data.message);
             }
         );
     };
@@ -79,7 +81,6 @@ export default function Edit(props) {
             (res) => {
                 setTitle(res.data.data[0].title);
                 setImage(res.data.data[0].image);
-                //console.log(res.data.data[0]);
             },
             (err) => {}
         );
@@ -90,8 +91,8 @@ export default function Edit(props) {
             <div className={classesEx.toolbar} />
 
             <h1>Edit Category</h1>
-
-            <h1>{msg}</h1>
+            {error_message ? <CustomError msg={error_message} /> : null}
+            {message ? <CustomSuccess msg={message} /> : null}
 
             <form id="form" autoComplete="off">
                 <Grid
