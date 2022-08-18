@@ -1,5 +1,5 @@
 import axios from "axios";
-import Config from "../classes/Config";
+import Config from "../config/app";
 
 // get posts
 const NotificationsApi = {
