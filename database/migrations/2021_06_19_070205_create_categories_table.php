@@ -21,6 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable()->references('id')->on('categories')->onDelete('cascade');
             $table->string("category_link")->nullable();
             $table->integer("sort_order")->nullable();
+            $table->string('status')->nullable()->default('1');
             $table->timestamps();
         });
     }

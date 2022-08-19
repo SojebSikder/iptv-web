@@ -23,16 +23,12 @@ class CategoryController extends Controller
         //
         if ($request->input('limit')) {
             $category = Category::orderBy('title', 'ASC')
-                ->with(['tvs' => function ($q) {
-                    $q->where("status", "1");
-                }])->get();
+                ->with('tvs')->get();
 
             return response()->json(['data' => $category], 200);
         } else {
             $category = Category::orderBy('title', 'ASC')
-                ->with(['tvs' => function ($q) {
-                    $q->where("status", "1");
-                }])->get();
+                ->with('tvs')->get();
 
             return response()->json(['data' => $category], 200);
         }
