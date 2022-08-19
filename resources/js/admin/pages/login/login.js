@@ -1,41 +1,36 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import Auth from '../../api/Auth';
-import AlertMsg from '../../components/AlertMsg';
-import Copyright from '../../components/Copyright';
-import UrlHelper from '../../helpers/UrlHelper';
+import Auth from "../../api/Auth";
+import Copyright from "../../components/Copyright";
+import UrlHelper from "../../helpers/UrlHelper";
 
 // Material UI
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import SessionService from '../../services/SessionService';
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 // End Material UI
-
-
-
 
 // Style
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
     },
     avatar: {
         margin: theme.spacing(1),
         backgroundColor: theme.palette.secondary.main,
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: "100%", // Fix IE 11 issue.
         marginTop: theme.spacing(1),
     },
     submit: {
@@ -43,60 +38,60 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
 export default function Login(props) {
-
     // User information
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     // Error handling variable
-    const [alert_message, setAlert_message] = useState('');
+    const [alert_message, setAlert_message] = useState("");
 
     const classes = useStyles();
-
-
 
     // Get value from input and set state
     const onChangeEmail = (e) => {
         setEmail(e.target.value);
-    }
+    };
     const onChangePassword = (e) => {
         setPassword(e.target.value);
-    }
+    };
     // create user account
     const onSubmit = (e) => {
         e.preventDefault();
         const user = {
             email: email,
-            password: password
-        }
+            password: password,
+        };
 
-        Auth.login(user, (res) => {
-            if (res.data.success == true) {
-                if (res.data.user.user_type == "admin") {
-                    localStorage.setItem("token", res.data.token);
-                    localStorage.setItem("userType", res.data.user.user_type);
-                    setAlert_message('success');
-                    UrlHelper.redirectTo(props, '/admin');
+        Auth.login(
+            user,
+            (res) => {
+                if (res.data.success == true) {
+                    if (res.data.user.user_type == "admin") {
+                        localStorage.setItem("token", res.data.token);
+                        localStorage.setItem(
+                            "userType",
+                            res.data.user.user_type
+                        );
+                        setAlert_message("success");
+                        UrlHelper.redirectTo(props, "/admin");
+                    } else {
+                        setAlert_message(
+                            "You are not admin :( Please step aside."
+                        );
+                    }
                 } else {
-                    setAlert_message('You are not admin :( Please step aside.');
+                    setAlert_message("error");
+                    //SessionService.removeAll();
+                    localStorage.clear();
                 }
-            } else {
-                setAlert_message('error');
-                //SessionService.removeAll();
-                localStorage.clear();
+            },
+            (err) => {
+                setAlert_message("Something wrong");
             }
-        }, (err) => {
-            setAlert_message('Somethinh wrong');
-        });
-
-
-    }
-
-
+        );
+    };
 
     return (
-
         <Container component="main" maxWidth="xs">
             <CssBaseline />
 
@@ -150,7 +145,11 @@ export default function Login(props) {
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link component={RouterLink} to="/admin/register" variant="body2">
+                            <Link
+                                component={RouterLink}
+                                to="/admin/register"
+                                variant="body2"
+                            >
                                 {"Don't have an account? Register"}
                             </Link>
                         </Grid>
@@ -161,5 +160,3 @@ export default function Login(props) {
         </Container>
     );
 }
-
-

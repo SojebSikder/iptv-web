@@ -4,7 +4,7 @@ import Config from "../config/app";
 // get posts
 const CategoryApi = {
     addCategory: (data, successCb, failCb) => {
-        axios.post(Config.getUrl() + '/category', data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.post(Config.getAdminUrl() + '/category', data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {
@@ -12,7 +12,7 @@ const CategoryApi = {
             });
     },
     getCategories: (successCb, failCb) => {
-        axios.get(Config.getUrl() + '/category', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.get(Config.getAdminUrl() + '/category', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {
@@ -21,7 +21,7 @@ const CategoryApi = {
     },
 
     getCategoryById: (id, successCb, failCb) => {
-        axios.get(Config.getUrl() + '/category/' + id, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.get(Config.getAdminUrl() + '/category/' + id, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {
@@ -30,7 +30,7 @@ const CategoryApi = {
     },
     updateCategory: (id, data, successCb, failCb) => {
 
-        axios.post(Config.getUrl() + '/category/' + id, data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.post(Config.getAdminUrl() + '/category/' + id, data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {
@@ -39,7 +39,7 @@ const CategoryApi = {
     },
 
     deleteCategoryById: (id, successCb, failCb) => {
-        axios.delete(Config.getUrl() + '/category/' + id, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.delete(Config.getAdminUrl() + '/category/' + id, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {

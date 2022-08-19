@@ -1,22 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\api\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-//use Auth;
-// use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Mail;
-use App\Mail\PasswordReset;
-use App\Models\DoctorCategory;
-use Carbon\Carbon;
-use Validator;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Http;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller

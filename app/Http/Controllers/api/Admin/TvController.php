@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\api\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Tv;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

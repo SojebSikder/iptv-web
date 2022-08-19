@@ -1,4 +1,5 @@
-const URL = "https://enigmatic-coast-30495.herokuapp.com";
+// const URL = "https://enigmatic-coast-30495.herokuapp.com";
+const URL = "http://localhost:8000";
 
 /**
  * Basic Configuration
@@ -11,6 +12,7 @@ const appConfig = {
     getAppName: () => {
         return "IPTV";
     },
+
     /**
      * App Slogan
      * @returns {String}
@@ -18,6 +20,7 @@ const appConfig = {
     getAppSlogan: () => {
         return "IPTV";
     },
+
     /**
      * Play store link
      * @returns {String}
@@ -25,19 +28,28 @@ const appConfig = {
     getAppPlayStoreLink: () => {
         return "https://play.google.com/store/apps/details?id=com.dealzia.healthcity";
     },
-    //
+
     /**
      * Get api address
      */
     getUrl: () => {
         return URL + "/api";
     },
+
+    /**
+     * Get admin  api address
+     */
+    getAdminUrl: () => {
+        return URL + "/api/admin";
+    },
+
     /**
      * Get server base address
      */
     getBase: () => {
         return URL;
     },
+
     /**
      * Get nodejs api address
      */

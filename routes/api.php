@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +16,23 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::resource('tv', App\Http\Controllers\api\TvController::class);
-Route::resource('category', App\Http\Controllers\api\CategoryController::class);
 
-// Login/Register
-Route::post('/register', [App\Http\Controllers\api\UserController::class, 'register']);
-Route::post('/login', [App\Http\Controllers\api\UserController::class, 'login']);
-Route::post('/logout', [App\Http\Controllers\api\UserController::class, 'logout']);
+// Admin
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], (function () {
+    Route::resource('tv', TvController::class);
+    Route::resource('category', CategoryController::class);
+    // Login/Register
+    Route::post('/register', 'UserController@register');
+    Route::post('/login', 'UserController@login');
+    Route::post('/logout', 'UserController@logout');
+}));
+
+// App
+Route::group(['namespace' => 'App',], function () {
+    Route::resource('tv', TvController::class);
+    Route::resource('category', CategoryController::class);
+    // Login/Register
+    Route::post('/register', 'UserController@register');
+    Route::post('/login', 'UserController@login');
+    Route::post('/logout', 'UserController@logout');
+});

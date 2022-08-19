@@ -24,7 +24,7 @@ class CreateTvsTable extends Migration
             $table->string('is_link_ext')->nullable()->default('false');
             $table->string('is_image_ext')->nullable()->default('false');
 
-            $table->string('status')->nullable()->default('true');
+            $table->string('status')->nullable()->default('1');
 
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');

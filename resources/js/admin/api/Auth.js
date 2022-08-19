@@ -3,7 +3,7 @@ import Config from "../config/app";
 const Auth = {
 
     getUsers: (successCb, failCb) => {
-        axios.get(Config.getUrl() + '/users?getByType=all', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.get(Config.getAdminUrl() + '/users?getByType=all', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {
@@ -12,7 +12,7 @@ const Auth = {
     },
 
     getUsersByType: (data, successCb, failCb) => {
-        axios.get(Config.getUrl() + '/users?getByType=' + data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.get(Config.getAdminUrl() + '/users?getByType=' + data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {
@@ -21,7 +21,7 @@ const Auth = {
     },
 
     getUserById: (id, successCb, failCb) => {
-        axios.get(Config.getUrl() + '/users/' + id, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.get(Config.getAdminUrl() + '/users/' + id, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {
@@ -31,7 +31,7 @@ const Auth = {
 
     updateUser: (data, successCb, failCb) => {
 
-        axios.post(Config.getUrl() + '/update_user', data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.post(Config.getAdminUrl() + '/update_user', data, { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 successCb(response);
             }).catch(err => {
@@ -43,21 +43,21 @@ const Auth = {
 
 
     login: (data, successCb, failCb) => {
-        axios.post(Config.getUrl() + '/login', data).then(response => {
+        axios.post(Config.getAdminUrl() + '/login', data).then(response => {
             successCb(response);
         }).catch(err => {
             failCb(err);
         });
     },
     register: (data, successCb, failCb) => {
-        axios.post(Config.getUrl() + '/register', data).then(response => {
+        axios.post(Config.getAdminUrl() + '/register', data).then(response => {
             successCb(response);
         }).catch(err => {
             failCb(err);
         });
     },
     logout: (successCb, failCb) => {
-        axios.get(Config.getUrl() + '/logout', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+        axios.get(Config.getAdminUrl() + '/logout', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
             .then(response => {
                 localStorage.clear();
                 successCb(response);
@@ -72,7 +72,7 @@ const Auth = {
     checkAuth: (successCb, failCb) => {
 
         if (localStorage.getItem("token") != null) {
-            axios.get(Config.getUrl() + '/check-auth', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
+            axios.get(Config.getAdminUrl() + '/check-auth', { headers: { Authorization: 'Bearer ' + localStorage.getItem("token") } })
                 .then(res => {
                     successCb(res);
                 })

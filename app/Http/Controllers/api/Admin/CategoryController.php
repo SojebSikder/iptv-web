@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\api\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -22,10 +22,6 @@ class CategoryController extends Controller
     {
         //
         if ($request->input('limit')) {
-            // this is using on app
-            // $category = Category::orderBy('title', 'ASC')
-            //     ->with('tvs')->limit((int)$request->input('limit'))->get();
-
             $category = Category::orderBy('title', 'ASC')
                 ->with(['tvs' => function ($q) {
                     $q->where("status", "1");
@@ -33,15 +29,10 @@ class CategoryController extends Controller
 
             return response()->json(['data' => $category], 200);
         } else {
-            // This is using on app
-            // $category = Category::orderBy('title', 'ASC')
-            //     ->with('tvs')->get();
-
             $category = Category::orderBy('title', 'ASC')
                 ->with(['tvs' => function ($q) {
                     $q->where("status", "1");
                 }])->get();
-
 
             return response()->json(['data' => $category], 200);
         }
